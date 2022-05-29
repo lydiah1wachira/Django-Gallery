@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns=[
   re_path('^$', views.index, name='index'),
+  re_path(r'^')
 ]
 
 
