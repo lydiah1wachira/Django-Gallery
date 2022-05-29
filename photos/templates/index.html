@@ -11,7 +11,7 @@
   {% block styles %}
     {% bootstrap_css %}
   {% endblock %}
-  
+
 </head>
 <body>
   <div class="container-fluid">
@@ -19,6 +19,11 @@
       <h1 class="text-center">WELCOME TO THE DJANGO GALLERY </h1>
     </div>
   </div>
-  
+
+  {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %} 
+  {% endblock %}
+
 </body>
 </html>

@@ -9,8 +9,8 @@ def index(request):
   return render(request, 'index.html')
 
 
-def all_photos(request):
-  '''
-  view function to display the photos gallery page.
-  '''
-  return render(request, 'all-photos.html')
+# def all_photos(request):
+#   '''
+#   view function to display the photos gallery page.
+#   '''
+#   return render(request, 'all-photos.html')
