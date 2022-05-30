@@ -11,3 +11,11 @@ class Image(models.Model):
   pub_date = models.DateTimeField(auto_now_add=True)
 
 
+class Category(models.Model):
+  '''
+  Category model to create new different category objects
+  '''
+  name = models.CharField(max_length = 30, null=False, blank=False)
+
+  def __str__(self):
+    return self.name 
