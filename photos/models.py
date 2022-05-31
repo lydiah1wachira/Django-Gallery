@@ -64,6 +64,7 @@ class Image(models.Model):
   photo = models.ImageField(null=False, blank=False)
   pub_date = models.DateTimeField(auto_now_add=True)
   category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+  location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
 
   def __str__(self):
     return self.description
