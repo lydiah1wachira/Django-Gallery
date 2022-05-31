@@ -9,11 +9,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Django Gallery</title>
   
-  <link rel="stylesheet" type="text/css" href="{% static 'photos/style.css' %}">
+ 
   {% block styles %}
     {% bootstrap_css %}
     
   {% endblock %}
+
+  <style>
+    body{
+      background-image: url('https://images.pexels.com/photos/8939718/pexels-photo-8939718.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+      background-repeat: no-repeat;
+      background-position: fixed;
+      background-size: cover;
+    }
+
+    h1{
+      color:goldenrod
+    }
+  </style>
+
+
 
 </head>
 <body>
