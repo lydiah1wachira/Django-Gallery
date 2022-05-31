@@ -48,10 +48,9 @@ class Location(models.Model):
     self.save()
 
   @classmethod
-  def get_locations(cls, id):
-    locations = Location.objects.all(pk = id)
+  def get_location_id(cls, id):
+    locations = Location.objects.filter( pk = id)
     return locations
-
 
 
 
