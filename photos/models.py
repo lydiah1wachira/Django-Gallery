@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import models
 import datetime as dt 
 
@@ -13,6 +14,44 @@ class Category(models.Model):
 
   def __str__(self):
     return self.name 
+
+  def save_category(self):
+    self.save()
+
+  def update_category(self, update):
+    self.name = update 
+    self.save()
+
+  def delete_category(self):
+        self.delete()
+
+  @classmethod
+  def get_category_id(cls, id):
+    category = Category.objects.get(pk = id)
+    return category
+
+
+
+
+class Location(models.Model):
+  name = models.CharField(max_length=30)
+
+  def __str__(self):
+    return self.name 
+
+
+  def save_location(self):
+    self.save()
+
+  def update_location(self, update):
+    self.name = update
+    self.save()
+
+  @classmethod
+  def get_locations(cls, id):
+    locations = Location.objects.all(pk = id)
+    return locations
+
 
 
 
