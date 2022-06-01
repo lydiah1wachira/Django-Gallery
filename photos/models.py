@@ -43,9 +43,6 @@ class Location(models.Model):
   def save_location(self):
     self.save()
 
-  def update_location(self, update):
-    self.name = update
-    self.save()
 
   @classmethod
   def get_location_id(cls, id):
@@ -60,7 +57,7 @@ class Image(models.Model):
   '''
   name = models.CharField(max_length=30)
   description = models.TextField()
-  photo = models.ImageField(upload_to = 'gallery_images/', null=True, blank=False)
+  photo = models.ImageField(upload_to = 'gallery_images/', null=True, blank=True)
   pub_date = models.DateTimeField(auto_now_add=True)
   category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
   location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
@@ -74,10 +71,9 @@ class Image(models.Model):
   def delete_image(self):
       self.delete()
 
-  @classmethod
-  def update_image(cls,id, photo,name, description, location, category):
-      update = cls.objects.filter(id = id).update( image_name=name, description=description, location=location, category=category)
-      return update
+  def updateImage(self):
+    self.update()
+
       
   @classmethod
   def get_images(cls):
@@ -86,8 +82,8 @@ class Image(models.Model):
     
   @classmethod
   def search_by_category(cls, search_term):
-      images = cls.objects.filter(category__title__icontains=search_term)
-      return images
+      searched_image = cls.objects.filter(category__name__icontains=search_term)
+      return searched_image
     
   @classmethod
   def get_image_by_id(cls,id):
@@ -95,9 +91,13 @@ class Image(models.Model):
       return image
     
   @classmethod
-  def filter_by_location(cls, img_location):
-      images_location = cls.objects.filter(location__id=img_location)
+  def filter_by_location(cls,id):
+      images_location = cls.objects.filter(location_id=id)
       return images_location
 
+  @classmethod
+  def filterByCategory(cls,id):
+      imageCategory = cls.objects.filter(category_id=id)
+      return imageCategory
 
 
