@@ -7,7 +7,7 @@
   <title>Django Gallery</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-info
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary
   ">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">Django Gallery</a>
@@ -36,8 +36,8 @@
           
         </ul>
         <form class="d-flex" role="search" action="{% url 'search_results' %}">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Search category" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
         </form>
       </div>
     </div>

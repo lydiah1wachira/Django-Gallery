@@ -46,20 +46,22 @@ def location_filter(request, location_id):
   categories = Category.objects.all()
 
   try:
+    location = Location.get_location_id(location_id)
     showLocations = Image.filter_by_location(location_id)
 
   except Image.DoesNotExist:
     raise Http404()
 
   return render(request, 'location.html', {"locations":locations,
-  "categories":categories, "showLocations":showLocations})
+  "categories":categories, "showLocations":showLocations,"location":location})
 
 def display_image(request, image_id):
   locations = Location.objects.all()
   categories = Category.objects.all()
+  
 
   try:
-    display_image = Image.objects.get(id = image_id)
+    display_image = Image.objects.get(image_id)
   
   except Image.DoesNotExist:
     raise Http404
